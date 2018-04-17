@@ -101,6 +101,11 @@ var rawCsv = 'CerealName,Manufacturer,Type,Calories,Protein,Fat,Sodium,DietaryFi
 
 var parsed = d3.csvParse(rawCsv)
 
+parsed.forEach(d => {
+    d.Calories = +d.Calories;
+    d.Protein = +d.Protein
+});
+
 
 xScale.domain([d3.min(parsed, xValue) - 1, d3.max(parsed, xValue) + 1])
 yScale.domain([d3.min(parsed, yValue) - 1, d3.max(parsed, yValue) + 1])
