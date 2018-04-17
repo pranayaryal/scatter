@@ -25,7 +25,7 @@ const cValue = d => d.class
 const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
-d3.csv('calories.csv', (error, data) => {
+d3.csv('calories.csv').then((error, data) => {
 
     data.forEach(d => {
         d.Calories = +d.Calories;
