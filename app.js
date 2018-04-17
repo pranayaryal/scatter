@@ -30,7 +30,7 @@ d3.csv('calories.csv').then((error, data) => {
     data.forEach(d => {
         d.Calories = +d.Calories;
         d.Protein = +d.Protein;
-        console.log(d.Protein);
+        console.log('you are here');
 
     });
 
