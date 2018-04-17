@@ -20,8 +20,7 @@ const yScale = d3.scaleLinear().range([height, 0])
 const yMap = d => yScale(yValue(d))
 const yAxis = d3.axisLeft(yScale)
 
-// const cValue = d => d.Manufacturer
-const cValue = d => d.class
+const cValue = d => d.Manufacturer
 const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var rawCsv = 'CerealName,Manufacturer,Type,Calories,Protein,Fat,Sodium,DietaryFiber,Carbs,Sugars,Display Shelf,Potassium,VitaminsMinerals,ServingSizeWeight,CupsPerServing\n' +
