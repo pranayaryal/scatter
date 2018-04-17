@@ -25,15 +25,14 @@ const cValue = d => d.class
 const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
-
 d3.csv('calories.csv', (error, data) => {
 
     data.forEach(d => {
-    d.Calories = +d.Calories;
-    d.Protein = +d.Protein;
-    console.log(d.Protein);
+        d.Calories = +d.Calories;
+        d.Protein = +d.Protein;
+        console.log(d.Protein);
 
-});
+    });
 
 });
 
@@ -83,36 +82,36 @@ svg.selectAll('.dot')
     .attr('cx', xMap)
     .attr('cy', yMap)
     // .style('fill', function(d) { return color(cValue(d))})
-    .style('fill', d =>  color(cValue(d)) )
-.on('mouseover', d =>{
-    tooltip.transition()
-    .duration(200)
-    .style('opacity', 0.9);
-tooltip.html(`${d.CerealName}<br/>Calories: ${xValue(d)}, Protein: ${yValue(d)}`)
-// .style('left', `${d3.event.pageX + 5}px`)
-    .style('left', `${d3.event.pageX - 210}px`)
-    // .style('top', `${d3.event.pageY -28 }px`)
-    .style('top', `${d3.event.pageY }px`)
-    .style('border', '1px solid grey')
-    .style('padding-left', '15px')
-    .style('padding-top', '5px')
-    .style('padding-bottom', '5px')
-    .style('background-color', 'lightblue')
-    .style('width', `${d.CerealName.length + 200}px`)
-})
-.on('mouseout', d => {
-    tooltip.transition()
-    .duration(500)
-    .style('opacity', 0)
-})
+    .style('fill', d => color(cValue(d)))
+    .on('mouseover', d => {
+        tooltip.transition()
+            .duration(200)
+            .style('opacity', 0.9);
+        tooltip.html(`${d.CerealName}<br/>Calories: ${xValue(d)}, Protein: ${yValue(d)}`)
+        // .style('left', `${d3.event.pageX + 5}px`)
+            .style('left', `${d3.event.pageX - 210}px`)
+            // .style('top', `${d3.event.pageY -28 }px`)
+            .style('top', `${d3.event.pageY }px`)
+            .style('border', '1px solid grey')
+            .style('padding-left', '15px')
+            .style('padding-top', '5px')
+            .style('padding-bottom', '5px')
+            .style('background-color', 'lightblue')
+            .style('width', `${d.CerealName.length + 200}px`)
+    })
+    .on('mouseout', d => {
+        tooltip.transition()
+            .duration(500)
+            .style('opacity', 0)
+    })
 
 var legend = svg.selectAll('.legend')
     .data(color.domain())
     .enter().append('g')
     .attr('class', 'legend')
     .attr('transform', (d, i) => {
-    return `translate(0,${i * 20})`
-})
+        return `translate(0,${i * 20})`
+    })
 
 legend.append('rect')
     .attr('x', width - 18)
