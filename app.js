@@ -28,7 +28,13 @@ const color = d3.scaleOrdinal(d3.schemeCategory10);
 
 d3.csv('calories.csv', (error, data) => {
 
-    console.log(data);
+    data.forEach(d => {
+    d.Calories = +d.Calories;
+    d.Protein = +d.Protein;
+    console.log(d.Protein);
+
+});
+
 });
 
 // xScale.domain([d3.min(parsed, xValue) - 1, d3.max(parsed, xValue) + 1])
