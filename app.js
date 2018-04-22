@@ -139,7 +139,7 @@ svg.append('g')
     .attr('transform', 'rotate(-90)')
     .attr('y', 6)
     .attr('dy', '.71em')
-    .attr('fill', 'grey')
+    .attr('fill', '#grey')
     .style('text-anchor', 'end')
     .text('Protein (g)')
 
